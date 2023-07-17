@@ -284,6 +284,11 @@ app.delete("/articulo/:id", async (req, res) => {
   }
 });
 
+// Ruta para manejar las solicitudes a rutas no existentes
+app.get("*", (req, res) => {
+  res.status(404).send("Lo sentimos, la página que buscas no existe.");
+});
+
 // Iniciar el servidor
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
